@@ -1,44 +1,20 @@
 // +build windows
 
-package protectecdh
+package protect
 
 import (
-	"crypto/ecdsa"
-	"github.com/pauldurbin69/ecdh"
-	"io/ioutil"
-	"os"
 
 	"github.com/billgraziano/dpapi"
 )
 
-// func protectKey(privateKey *ecdsa.PrivateKey) error {
+// protect
+func protect(bytes []byte) error {
 
-func protectKey(privateKey *ecdsa.PrivateKey) error {
-
-	key, err := getKey()
-	home, err := os.UserHomeDir()
-
-	bytes, err := ecdh.EncodeEcPrivateKey(privateKey, key)
-
-	cipherBytes, err := dpapi.EncryptBytesMachineLocal(bytes)
-
-	err = ioutil.WriteFile(home+"/"+keyFileName, cipherBytes, 0600)
-
-	return err
+	return dpapi.EncryptBytesMachineLocal(bytes)
 }
 
 // unprotectKey
-func unprotectKey() (*ecdsa.PrivateKey, error) {
+func unprotect(cipherBytes []byte) (bytes []byte, error) {
 
-	home, err := os.UserHomeDir()
-	
-	cipherBytes, err := ioutil.ReadFile(home + "/" + keyFileName)
-
-	encPriv, err := dpapi.DecryptBytes(cipherBytes)
-
-	key, err := getKey()
-
-	privateKey, err := ecdh.DecodeEcPrivateKey(encPriv, key)
-
-	return privateKey, err
+	return dpapi.DecryptBytes(cipherBytes)
 }
