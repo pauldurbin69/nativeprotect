@@ -3,18 +3,17 @@
 package nativeprotect
 
 import (
-
 	"github.com/billgraziano/dpapi"
 )
 
 // protect
-func protect(bytes []byte) error {
+func ProtectNative(bytes []byte) error {
 
 	return dpapi.EncryptBytesMachineLocal(bytes)
 }
 
 // unprotectKey
-func unprotect(cipherBytes []byte) (bytes []byte, error) {
+func UnprotectNative(cipherBytes []byte) ([]byte, error) {
 
 	return dpapi.DecryptBytes(cipherBytes)
 }

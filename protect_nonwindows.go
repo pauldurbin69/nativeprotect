@@ -31,7 +31,7 @@ const (
 )
 
 // Protect
-func protect(clearBytes []byte) ([]byte, error) {
+func ProtectNative(clearBytes []byte) ([]byte, error) {
 
 	cryptKey, err := getKey()
 
@@ -56,7 +56,7 @@ func protect(clearBytes []byte) ([]byte, error) {
 }
 
 // UnprotectKey
-func unprotect(combinedBytes []byte) ([]byte, error) {
+func (combinedBytes []byte) ([]byte, error) {
 
 	cryptKey, err := getKey()
 
