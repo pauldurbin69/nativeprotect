@@ -1,4 +1,4 @@
-package protect
+package nativeprotect
 
 import "testing"
 

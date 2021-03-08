@@ -1,6 +1,6 @@
 // +build freebsd netbsd openbsd dragonfly solaris darmin linux
 
-package protect
+package nativeprotect
 
 import (
 	"bytes"

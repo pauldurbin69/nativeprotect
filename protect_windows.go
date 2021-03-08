@@ -1,6 +1,6 @@
 // +build windows
 
-package protect
+package nativeprotect
 
 import (
 

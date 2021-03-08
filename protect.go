@@ -1,4 +1,4 @@
-package protect
+package nativeprotect
 
 // Protect write ecdh private key to OS secured file
 func Protect(clearBytes []byte) ([]byte, error) {
