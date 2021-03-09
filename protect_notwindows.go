@@ -1,4 +1,4 @@
-// +build freebsd netbsd openbsd dragonfly solaris darmin linux
+// +build freebsd netbsd openbsd dragonfly solaris darwin linux
 
 package nativeprotect
 
@@ -30,8 +30,8 @@ const (
 	appKey = "h&ji(_8G$$hhukkwy56"
 )
 
-// Protect
-func ProtectNative(clearBytes []byte) ([]byte, error) {
+// protectNative
+func protectNative(clearBytes []byte) ([]byte, error) {
 
 	cryptKey, err := getKey()
 
@@ -55,8 +55,8 @@ func ProtectNative(clearBytes []byte) ([]byte, error) {
 	return cipherBytes, nil
 }
 
-// UnprotectKey
-func (combinedBytes []byte) ([]byte, error) {
+// unprotectNative
+func unprotectNative(combinedBytes []byte) ([]byte, error) {
 
 	cryptKey, err := getKey()
 

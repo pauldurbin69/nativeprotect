@@ -6,14 +6,14 @@ import (
 	"github.com/billgraziano/dpapi"
 )
 
-// protect
-func ProtectNative(bytes []byte) error {
+// protectNative
+func protectNative(bytes []byte) ([]byte, error) {
 
 	return dpapi.EncryptBytesMachineLocal(bytes)
 }
 
-// unprotectKey
-func UnprotectNative(cipherBytes []byte) ([]byte, error) {
+// unprotectNative
+func unprotectNative(cipherBytes []byte) ([]byte, error) {
 
 	return dpapi.DecryptBytes(cipherBytes)
 }

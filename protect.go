@@ -1,13 +1,15 @@
 package nativeprotect
 
-// Protect write ecdh private key to OS secured file
+// Protect some stuff
 func Protect(clearBytes []byte) ([]byte, error) {
+	// Return a greeting that embeds the name in amessage := fmt.Sprintf("Hi, %v. Welcome!", name) message.
 
-	return ProtectNative(clearBytes)
+	return protectNative(clearBytes)
 }
 
-// Unprotect read ecdh private key from OS secured file
+// Unprotect some stuff
 func Unprotect(cipherBytes []byte) ([]byte, error) {
+	// Return a greeting that embeds the name in amessage := fmt.Sprintf("Hi, %v. Welcome!", name) message.
 
-	return UnprotectNative(cipherBytes)
+	return unprotectNative(cipherBytes)
 }
