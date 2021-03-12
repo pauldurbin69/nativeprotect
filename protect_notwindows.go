@@ -31,6 +31,7 @@ const (
 )
 
 // protectNative provides similar to windows dpapi but using hash of unique OS uuid as key
+// encrypted bytes should then be stored in user home dir as user r/w only
 func protectNative(clearBytes []byte) ([]byte, error) {
 
 	cryptKey, err := getKey()

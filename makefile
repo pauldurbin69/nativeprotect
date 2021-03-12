@@ -1,7 +1,7 @@
 .PHONY: build clean default test
 
 build: clean
-	@go build -o nativeprotect ./cmd/machineid/main.go
+	@go build -o nativeprotect ./cmd/main.go
 
 clean:
 	@rm -rf ./nativeprotect
