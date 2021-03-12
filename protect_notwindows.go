@@ -30,7 +30,7 @@ const (
 	appKey = "h&ji(_8G$$hhukkwy56"
 )
 
-// protectNative
+// protectNative provides similar to windows dpapi but using hash of unique OS uuid as key
 func protectNative(clearBytes []byte) ([]byte, error) {
 
 	cryptKey, err := getKey()
@@ -130,6 +130,7 @@ func pkcs7Unpad(b []byte, blocksize int) ([]byte, error) {
 	return b[:len(b)-n], nil
 }
 
+// uses machine id as a seed for the encryption key
 func getKey() ([]byte, error) {
 
 	id, err := machineid.ProtectedID(appKey)
